@@ -1,0 +1,14 @@
+{
+  "domain": "vestel_ecv04",
+  "name": "vestel_ecv04",
+  "version": "0.0.1",
+  "codeowners": ["@dominikandreas"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/vestel_ecv04",
+  "homekit": {},
+  "iot_class": "local_polling",
+  "requirements": ["beautifulsoup4", "pyaml", "requests", "aiohttp"],
+  "ssdp": [],
+  "zeroconf": []
+}

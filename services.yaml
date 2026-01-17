@@ -1,0 +1,23 @@
+set_phases_and_current:
+  description: "Set the number of active phases for the charger."
+  fields:
+    num_phases:
+      description: "The number of active phases to set (1 or 3)."
+      example: 1
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 3
+          mode: box
+          step: 2
+    current:
+      description: "The current limit to set (between 6 and 16)."
+      example: 10
+      required: true
+      selector:
+        number:
+          min: 6
+          max: 16
+          mode: slider
+          step: 1
