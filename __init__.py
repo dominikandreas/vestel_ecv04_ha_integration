@@ -1,18 +1,19 @@
 """The vestel_ecv04 integration."""
+
 from __future__ import annotations
 
-from datetime import timedelta
 import logging
+from datetime import timedelta
 
 import voluptuous as vol
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
+from vestel_ecv04_client import ECV04ClientConfig, VestelChargerClient
+
 from .const import DOMAIN
-from .vestel_ecv04_client import ECV04ClientConfig, VestelChargerClient
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -46,15 +47,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data[DOMAIN][entry.entry_id] = coordinator
 
     # Setup platforms (sensor, switch, etc.)
-    hass.async_create_task(
-        hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
-    )
+    hass.async_create_task(hass.config_entries.async_forward_entry_setups(entry, PLATFORMS))
 
     async def handle_set_phases_and_current_service_call(service_call):
         """Handle the service call."""
-        await charger_client.set_phases_and_current(
-            service_call.data["num_phases"], service_call.data["current"]
-        )
+        await charger_client.set_phases_and_current(service_call.data["num_phases"], service_call.data["current"])
         # set the setate of num_phases and current
         hass.states.async_set(
             f"{DOMAIN}.current",
@@ -73,9 +70,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         schema=vol.Schema(
             {
                 vol.Optional("num_phases"): vol.In([1, 3]),
-                vol.Optional("current"): vol.In(
-                    [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-                ),
+                vol.Optional("current"): vol.In([6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]),
             }
         ),
     )

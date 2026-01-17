@@ -1,3 +1,3 @@
-"""Constants for the vestel_ecv04_2 integration."""
+"""Constants for the vestel_ecv04 integration."""
 
 DOMAIN = "vestel_ecv04"

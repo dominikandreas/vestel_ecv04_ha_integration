@@ -5,10 +5,10 @@
   "codeowners": ["@dominikandreas"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://www.home-assistant.io/integrations/vestel_ecv04",
+  "documentation": "https://github.com/dominikandreas/vestel_ecv04_ha_integration",
   "homekit": {},
   "iot_class": "local_polling",
-  "requirements": ["beautifulsoup4", "pyaml", "requests", "aiohttp"],
+  "requirements": ["beautifulsoup4", "pyaml", "requests", "aiohttp", "vestel-ecv04-client==0.1.0"],
   "ssdp": [],
   "zeroconf": []
 }
