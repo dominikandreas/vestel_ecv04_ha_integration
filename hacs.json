@@ -1,0 +1,11 @@
+{
+  "name": "Vestel ECV04 Wallbox",
+  "content_in_root": false,
+  "filename": "vestel_ecv04.zip",
+  "hide_default_branch": true,
+  "hacs": "1.6.0",
+  "homeassistant": "2024.1.0",
+  "persistent_directory": null,
+  "render_readme": true,
+  "zip_release": true
+}
